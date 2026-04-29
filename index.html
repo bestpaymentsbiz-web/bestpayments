@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>베스트페이먼츠 BestPayments - 대한민국 대표 전자결제 대행사</title>
+  <meta name="description" content="베스트페이먼츠는 신용카드, 간편결제, 계좌이체, 가상계좌, 휴대폰결제 등 다양한 전자결제 솔루션을 제공하는 PG(전자결제대행) 전문 기업입니다." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/common.css" />
+  <style>
+    /* ---- 히어로 ---- */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a1a3a 0%, #0047AB 55%, #00A8E8 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 72px;
+    }
+
+    .hero-bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,.04);
+      animation: pulse-shape 6s ease-in-out infinite alternate;
+    }
+    .hero-bg-shape.s1 { width: 600px; height: 600px; top: -200px; right: -150px; }
+    .hero-bg-shape.s2 { width: 400px; height: 400px; bottom: -150px; left: -100px; animation-delay: 2s; }
+    .hero-bg-shape.s3 { width: 250px; height: 250px; top: 30%; right: 20%; animation-delay: 1s; }
+
+    @keyframes pulse-shape {
+      from { transform: scale(1) rotate(0deg); }
+      to   { transform: scale(1.08) rotate(6deg); }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,.9);
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-label i { color: var(--accent); }
+
+    .hero-title {
+      font-size: clamp(32px, 5.5vw, 58px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.18;
+      margin-bottom: 24px;
+    }
+
+    .hero-title .highlight {
+      background: linear-gradient(90deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* 히어로 우측 CTA 패널 */
+    .hero-cta-panel {
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 20px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-cta-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    .hero-cta-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 12px;
+      padding: 14px 18px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .hero-cta-item:hover {
+      background: rgba(255,255,255,.18);
+      transform: translateX(-4px);
+      border-color: rgba(255,255,255,.3);
+    }
+
+    .hero-cta-item i {
+      font-size: 20px;
+      color: var(--accent);
+      width: 26px;
+      text-align: center;
+    }
+
+    .hero-cta-item .arrow {
+      margin-left: auto;
+      font-size: 12px;
+      opacity: .6;
+    }
+
+    /* 히어로 하단 통계 바 */
+    .hero-stats {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10,26,58,.7);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 22px 0;
+      z-index: 2;
+    }
+
+    .hero-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .hero-stat-item {
+      text-align: center;
+      padding: 0 24px;
+      border-right: 1px solid rgba(255,255,255,.1);
+    }
+
+    .hero-stat-item:last-child { border-right: none; }
+
+    .hero-stat-num {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .hero-stat-label {
+      font-size: 12.5px;
+      color: rgba(255,255,255,.55);
+      margin-top: 3px;
+    }
+
+    /* ---- 서비스 퀵링크 ---- */
+    .quick-links-section {
+      padding: 0;
+      margin-top: -1px;
+    }
+
+    .quick-links-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .quick-link-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 28px 16px;
+      background: var(--primary);
+      color: rgba(255,255,255,.85);
+      font-size: 13.5px;
+      font-weight: 700;
+      transition: var(--transition);
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,.12);
+    }
+
+    .quick-link-item:last-child { border-right: none; }
+
+    .quick-link-item:hover {
+      background: var(--primary-dark);
+      color: #fff;
+      transform: scale(1.03);
+    }
+
+    .quick-link-item i {
+      font-size: 22px;
+    }
+
+    /* ---- 소개 섹션 ---- */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .intro-visual {
+      position: relative;
+    }
+
+    .intro-main-card {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 24px;
+      padding: 48px 36px;
+      color: #fff;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .intro-main-card .big-icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+      opacity: .9;
+    }
+
+    .intro-main-card h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .intro-main-card p {
+      font-size: 14.5px;
+      opacity: .85;
+      line-height: 1.7;
+    }
+
+    .intro-floating-cards {
+      position: absolute;
+      top: -24px;
+      right: -24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .floating-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px 16px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dark);
+      animation: float-card 4s ease-in-out infinite alternate;
+    }
+
+    .floating-card:nth-child(2) { animation-delay: .8s; }
+    .floating-card:nth-child(3) { animation-delay: 1.6s; }
+
+    .floating-card i { font-size: 18px; color: var(--primary); }
+
+    @keyframes float-card {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-8px); }
+    }
+
+    .intro-text h2 {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      color: var(--text-dark);
+    }
+
+    .intro-text h2 em {
+      font-style: normal;
+      color: var(--primary);
+    }
+
+    .intro-text p {
+      font-size: 16px;
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .intro-check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .intro-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .check-dot {
+      width: 22px;
+      height: 22px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .intro-check-item span {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* ---- 서비스 카드 ---- */
+    .service-card {
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 36px 28px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transform: scaleX(0);
+      transition: var(--transition);
+      transform-origin: left;
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-6px);
+      border-color: transparent;
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: var(--primary);
+      margin-bottom: 22px;
+      transition: var(--transition);
+    }
+
+    .service-card:hover .service-icon {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+    }
+
+    .service-card h3 {
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+    }
+
+    .service-card p {
+      font-size: 14.5px;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .service-link:hover { gap: 10px; }
+
+    /* ---- 통계 섹션 ---- */
+    .stats-section {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--accent));
+      padding: 72px 0;
+      color: #fff;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 32px 24px;
+      border-right: 1px solid rgba(255,255,255,.15);
+    }
+
+    .stat-card:last-child { border-right: none; }
+
+    .stat-card .num {
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .stat-card .label {
+      font-size: 15px;
+      color: rgba(255,255,255,.75);
+      font-weight: 500;
+    }
+
+    .stat-card .icon {
+      font-size: 32px;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 12px;
+    }
+
+    /* ---- 프로세스 섹션 ---- */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+      margin-bottom: 48px;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(10% + 18px);
+      right: calc(10% + 18px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      z-index: 0;
+    }
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-num {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: var(--primary);
+      margin-bottom: 16px;
+      transition: var(--transition);
+    }
+
+    .process-step:hover .process-num {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 0 0 6px rgba(0,71,171,.15);
+    }
+
+    .process-step h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
+
+    .process-step p {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ---- 공지사항 ---- */
+    .notice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .notice-card {
+      background: #fff;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .notice-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .notice-header h3 {
+      font-size: 17px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .notice-header h3 i { color: var(--primary); }
+
+    .notice-more {
+      font-size: 13px;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .notice-more:hover { color: var(--primary); }
+
+    .notice-list li {
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--bg-light);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .notice-list li:last-child { border-bottom: none; }
+
+    .notice-date {
+      background: var(--bg-light);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 11.5px;
+      color: var(--text-light);
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .notice-title {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    .notice-title:hover { color: var(--primary); }
+
+    /* ---- 파트너 ---- */
+    .partner-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .partner-logo {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-mid);
+      transition: var(--transition);
+    }
+
+    .partner-logo:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ---- CTA 배너 ---- */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      border-radius: 24px;
+      padding: 56px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.04);
+      right: -100px;
+      top: -150px;
+    }
+
+    .cta-banner-text h2 {
+      font-size: clamp(24px, 3.5vw, 34px);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .cta-banner-text p {
+      font-size: 16px;
+      color: rgba(255,255,255,.75);
+    }
+
+    .cta-banner-actions {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    /* ---- 반응형 ---- */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-cta-panel { display: none; }
+      .hero-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 0; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,.15); }
+      .stat-card:nth-child(even) { border-right: none; }
+      .process-steps { grid-template-columns: 1fr; gap: 24px; }
+      .process-steps::before { display: none; }
+      .notice-grid { grid-template-columns: 1fr; }
+      .cta-banner { flex-direction: column; text-align: center; padding: 40px 32px; }
+      .quick-links-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .intro-grid { grid-template-columns: 1fr; }
+      .intro-floating-cards { display: none; }
+      .quick-links-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-stat-item { padding: 0 12px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: 1fr; }
+      .quick-links-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== 헤더 ==================== -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">B</div>
+      <div>베스트페이먼츠<span class="logo-en">BestPayments</span></div>
+    </a>
+    <nav class="main-nav" role="navigation" aria-label="주 메뉴">
+      <div class="nav-item">
+        <a href="about.html" class="nav-link">회사소개 <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="dropdown">
+          <a href="about.html#overview" class="dropdown-link"><i class="fa-solid fa-building"></i> 회사개요</a>
+          <a href="about.html#history" class="dropdown-link"><i class="fa-solid fa-timeline"></i> 연혁</a>
+          <a href="about.html#certification" class="dropdown-link"><i class="fa-solid fa-certificate"></i> 인증 및 허가</a>
+          <a href="about.html#location" class="dropdown-link"><i class="fa-solid fa-location-dot"></i> 오시는 길</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="pg-service.html" class="nav-link">전자결제(PG) <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="dropdown">
+          <a href="pg-service.html#overview" class="dropdown-link"><i class="fa-solid fa-credit-card"></i> 서비스 소개</a>
+          <a href="pg-service.html#features" class="dropdown-link"><i class="fa-solid fa-star"></i> 주요 기능</a>
+          <a href="pg-service.html#clients" class="dropdown-link"><i class="fa-solid fa-handshake"></i> 고객사 &amp; 제휴사</a>
+          <a href="pg-service.html#apply" class="dropdown-link"><i class="fa-solid fa-file-signature"></i> 서비스 신청</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="settlement.html" class="nav-link">정산 프로세스 <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="dropdown">
+          <a href="settlement.html#process" class="dropdown-link"><i class="fa-solid fa-arrows-spin"></i> 정산 흐름</a>
+          <a href="settlement.html#schedule" class="dropdown-link"><i class="fa-solid fa-calendar-days"></i> 정산 일정</a>
+          <a href="settlement.html#documents" class="dropdown-link"><i class="fa-solid fa-file-lines"></i> 구비 서류</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="payment-methods.html" class="nav-link">결제수단 안내 <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="dropdown">
+          <a href="payment-methods.html#card" class="dropdown-link"><i class="fa-solid fa-credit-card"></i> 신용·체크카드</a>
+          <a href="payment-methods.html#easy" class="dropdown-link"><i class="fa-solid fa-mobile-screen"></i> 간편결제</a>
+          <a href="payment-methods.html#transfer" class="dropdown-link"><i class="fa-solid fa-building-columns"></i> 실시간 계좌이체</a>
+          <a href="payment-methods.html#virtual" class="dropdown-link"><i class="fa-solid fa-piggy-bank"></i> 가상계좌</a>
+          <a href="payment-methods.html#phone" class="dropdown-link"><i class="fa-solid fa-phone"></i> 휴대폰 결제</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="support.html" class="nav-link">고객센터 <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="dropdown">
+          <a href="support.html#notice" class="dropdown-link"><i class="fa-solid fa-bullhorn"></i> 공지사항</a>
+          <a href="support.html#faq" class="dropdown-link"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+          <a href="support.html#inquiry" class="dropdown-link"><i class="fa-solid fa-envelope"></i> 1:1 문의</a>
+          <a href="support.html#apply" class="dropdown-link"><i class="fa-solid fa-pen-to-square"></i> 서비스 신청</a>
+        </div>
+      </div>
+    </nav>
+    <div class="header-cta">
+      <span class="header-phone"><i class="fa-solid fa-headset"></i> 1644-0000</span>
+      <a href="support.html#apply" class="btn btn-primary">서비스 신청</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- 모바일 메뉴 -->
+<nav class="mobile-menu" id="mobile-menu" aria-label="모바일 메뉴">
+  <div class="mobile-nav-item">
+    <div class="mobile-nav-link" data-toggle="mob-about">회사소개 <i class="fa-solid fa-chevron-down mobile-toggle-icon" style="transition:.3s"></i></div>
+    <div class="mobile-subnav" id="mob-about">
+      <a href="about.html#overview">회사개요</a>
+      <a href="about.html#history">연혁</a>
+      <a href="about.html#certification">인증 및 허가</a>
+      <a href="about.html#location">오시는 길</a>
+    </div>
+  </div>
+  <div class="mobile-nav-item">
+    <div class="mobile-nav-link" data-toggle="mob-pg">전자결제(PG) <i class="fa-solid fa-chevron-down mobile-toggle-icon" style="transition:.3s"></i></div>
+    <div class="mobile-subnav" id="mob-pg">
+      <a href="pg-service.html#overview">서비스 소개</a>
+      <a href="pg-service.html#features">주요 기능</a>
+      <a href="pg-service.html#clients">고객사 &amp; 제휴사</a>
+      <a href="pg-service.html#apply">서비스 신청</a>
+    </div>
+  </div>
+  <div class="mobile-nav-item">
+    <div class="mobile-nav-link" data-toggle="mob-settle">정산 프로세스 <i class="fa-solid fa-chevron-down mobile-toggle-icon" style="transition:.3s"></i></div>
+    <div class="mobile-subnav" id="mob-settle">
+      <a href="settlement.html#process">정산 흐름</a>
+      <a href="settlement.html#schedule">정산 일정</a>
+      <a href="settlement.html#documents">구비 서류</a>
+    </div>
+  </div>
+  <div class="mobile-nav-item">
+    <div class="mobile-nav-link" data-toggle="mob-pay">결제수단 안내 <i class="fa-solid fa-chevron-down mobile-toggle-icon" style="transition:.3s"></i></div>
+    <div class="mobile-subnav" id="mob-pay">
+      <a href="payment-methods.html#card">신용·체크카드</a>
+      <a href="payment-methods.html#easy">간편결제</a>
+      <a href="payment-methods.html#transfer">실시간 계좌이체</a>
+      <a href="payment-methods.html#virtual">가상계좌</a>
+      <a href="payment-methods.html#phone">휴대폰 결제</a>
+    </div>
+  </div>
+  <div class="mobile-nav-item">
+    <div class="mobile-nav-link" data-toggle="mob-support">고객센터 <i class="fa-solid fa-chevron-down mobile-toggle-icon" style="transition:.3s"></i></div>
+    <div class="mobile-subnav" id="mob-support">
+      <a href="support.html#notice">공지사항</a>
+      <a href="support.html#faq">FAQ</a>
+      <a href="support.html#inquiry">1:1 문의</a>
+      <a href="support.html#apply">서비스 신청</a>
+    </div>
+  </div>
+  <div style="margin-top:24px;">
+    <a href="support.html#apply" class="btn btn-primary" style="width:100%;justify-content:center;">서비스 신청하기</a>
+  </div>
+</nav>
+
+<!-- ==================== 퀵 CTA ==================== -->
+<div class="quick-cta" aria-label="빠른 메뉴">
+  <a href="support.html#apply" class="quick-cta-btn">
+    <i class="fa-solid fa-pen-to-square"></i><span>서비스 신청</span>
+  </a>
+  <a href="settlement.html" class="quick-cta-btn accent">
+    <i class="fa-solid fa-calculator"></i><span>정산 안내</span>
+  </a>
+  <a href="support.html#faq" class="quick-cta-btn" style="background:var(--secondary)">
+    <i class="fa-solid fa-circle-question"></i><span>FAQ</span>
+  </a>
+</div>
+
+<!-- ==================== 히어로 ==================== -->
+<section id="hero">
+  <div class="hero-bg-shape s1"></div>
+  <div class="hero-bg-shape s2"></div>
+  <div class="hero-bg-shape s3"></div>
+
+  <div class="container" style="width:100%">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-label">
+          <i class="fa-solid fa-shield-halved"></i>
+          금융위원회 등록 전자금융업자 · ISO27001 인증
+        </div>
+        <h1 class="hero-title">
+          더 빠르고 안전하게<br />
+          <span class="highlight">스마트한 결제 파트너</span>
+        </h1>
+        <p class="hero-desc">
+          베스트페이먼츠는 신용카드, 간편결제, 계좌이체, 가상계좌, 휴대폰 결제 등<br />
+          다양한 전자결제 솔루션으로 고객사의 비즈니스 성장을 지원합니다.
+        </p>
+        <div class="hero-actions">
+          <a href="support.html#apply" class="btn btn-accent btn-lg">
+            <i class="fa-solid fa-pen-to-square"></i> 지금 서비스 신청하기
+          </a>
+          <a href="pg-service.html" class="btn btn-outline-white btn-lg">
+            <i class="fa-solid fa-circle-play"></i> 서비스 소개 보기
+          </a>
+        </div>
+      </div>
+
+      <!-- 우측 CTA 패널 -->
+      <div class="hero-cta-panel">
+        <div class="hero-cta-title"><i class="fa-solid fa-bolt" style="color:var(--accent)"></i> 빠른 바로가기</div>
+        <a href="pg-service.html" class="hero-cta-item">
+          <i class="fa-solid fa-credit-card"></i>
+          <div><div style="font-size:15px">전자결제(PG)</div><div style="font-size:12px;opacity:.7;margin-top:2px">서비스 소개</div></div>
+          <i class="fa-solid fa-chevron-right arrow"></i>
+        </a>
+        <a href="settlement.html" class="hero-cta-item">
+          <i class="fa-solid fa-calculator"></i>
+          <div><div style="font-size:15px">정산 프로세스</div><div style="font-size:12px;opacity:.7;margin-top:2px">정산 흐름 확인</div></div>
+          <i class="fa-solid fa-chevron-right arrow"></i>
+        </a>
+        <a href="payment-methods.html" class="hero-cta-item">
+          <i class="fa-solid fa-wallet"></i>
+          <div><div style="font-size:15px">결제수단 안내</div><div style="font-size:12px;opacity:.7;margin-top:2px">5가지 결제 지원</div></div>
+          <i class="fa-solid fa-chevron-right arrow"></i>
+        </a>
+        <a href="support.html#apply" class="hero-cta-item" style="background:rgba(0,168,232,.15);border-color:rgba(0,168,232,.3)">
+          <i class="fa-solid fa-file-signature" style="color:#7fd7f8"></i>
+          <div><div style="font-size:15px">서비스 신청</div><div style="font-size:12px;opacity:.7;margin-top:2px">온라인 신청 바로가기</div></div>
+          <i class="fa-solid fa-chevron-right arrow"></i>
+        </a>
+        <a href="support.html" class="hero-cta-item">
+          <i class="fa-solid fa-headset"></i>
+          <div><div style="font-size:15px">고객센터</div><div style="font-size:12px;opacity:.7;margin-top:2px">1644-0000</div></div>
+          <i class="fa-solid fa-chevron-right arrow"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 히어로 하단 통계 -->
+  <div class="hero-stats">
+    <div class="container">
+      <div class="hero-stats-grid">
+        <div class="hero-stat-item">
+          <div class="hero-stat-num"><span class="count-up" data-target="12000" data-suffix="+">12000+</span></div>
+          <div class="hero-stat-label">가맹점 수</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num"><span class="count-up" data-target="98" data-suffix=".9%">98.9%</span></div>
+          <div class="hero-stat-label">결제 성공률</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num"><span class="count-up" data-target="24" data-suffix="시간">24시간</span></div>
+          <div class="hero-stat-label">365일 운영</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num"><span class="count-up" data-target="15" data-suffix="년">15년</span></div>
+          <div class="hero-stat-label">업력</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 퀵링크 ==================== -->
+<section class="quick-links-section">
+  <div class="quick-links-grid">
+    <a href="pg-service.html" class="quick-link-item">
+      <i class="fa-solid fa-credit-card"></i>
+      <span>전자결제(PG) 소개</span>
+    </a>
+    <a href="settlement.html" class="quick-link-item">
+      <i class="fa-solid fa-calculator"></i>
+      <span>정산 프로세스</span>
+    </a>
+    <a href="payment-methods.html" class="quick-link-item">
+      <i class="fa-solid fa-wallet"></i>
+      <span>결제수단 안내</span>
+    </a>
+    <a href="support.html#apply" class="quick-link-item">
+      <i class="fa-solid fa-pen-to-square"></i>
+      <span>서비스 신청</span>
+    </a>
+    <a href="support.html#faq" class="quick-link-item" style="background:var(--accent)">
+      <i class="fa-solid fa-circle-question"></i>
+      <span>FAQ &amp; 문의</span>
+    </a>
+  </div>
+</section>
+
+<!-- ==================== 회사 소개 ==================== -->
+<section class="section" id="about-intro">
+  <div class="container">
+    <div class="intro-grid">
+      <!-- 비주얼 -->
+      <div class="intro-visual reveal">
+        <div class="intro-main-card">
+          <div class="big-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>신뢰와 보안을<br />최우선으로</h3>
+          <p>금융위원회 등록 전자금융업자로서<br />최고 수준의 보안과 안정성을 제공합니다.</p>
+        </div>
+        <div class="intro-floating-cards">
+          <div class="floating-card"><i class="fa-solid fa-lock"></i> PCI-DSS 인증</div>
+          <div class="floating-card"><i class="fa-solid fa-certificate"></i> ISO 27001</div>
+          <div class="floating-card"><i class="fa-solid fa-check-circle"></i> ISMS 인증</div>
+        </div>
+      </div>
+      <!-- 텍스트 -->
+      <div class="intro-text reveal reveal-delay-2">
+        <div class="section-label">베스트페이먼츠 소개</div>
+        <h2>대한민국 대표<br /><em>전자결제 전문 기업</em></h2>
+        <p>베스트페이먼츠(BestPayments)는 2009년 창립 이래 전자상거래의 핵심 인프라를 제공해 왔습니다. 쇼핑몰, 구독 서비스, B2B 플랫폼 등 다양한 업종에 최적화된 결제 솔루션을 제공합니다.</p>
+        <ul class="intro-check-list">
+          <li class="intro-check-item"><div class="check-dot"><i class="fa-solid fa-check"></i></div><span>신용카드·간편결제·계좌이체·가상계좌·휴대폰 결제 올인원 지원</span></li>
+          <li class="intro-check-item"><div class="check-dot"><i class="fa-solid fa-check"></i></div><span>REST API 기반 손쉬운 연동, 개발 전담팀 무상 지원</span></li>
+          <li class="intro-check-item"><div class="check-dot"><i class="fa-solid fa-check"></i></div><span>D+1 빠른 정산으로 현금흐름 개선</span></li>
+          <li class="intro-check-item"><div class="check-dot"><i class="fa-solid fa-check"></i></div><span>24시간 365일 모니터링 및 전담 CS 지원</span></li>
+        </ul>
+        <a href="about.html" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> 회사 소개 자세히 보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 서비스 카드 ==================== -->
+<section class="section section-bg" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">베스트페이먼츠 서비스</div>
+      <h2 class="section-title">모든 결제를 하나로</h2>
+      <p class="section-subtitle">다양한 결제 환경에 맞는 최적의 솔루션을 제공합니다.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-3">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon"><i class="fa-solid fa-credit-card"></i></div>
+        <h3>전자결제(PG) 서비스</h3>
+        <p>온라인 쇼핑몰부터 구독형 서비스까지, 다양한 비즈니스 모델에 최적화된 PG 솔루션을 제공합니다.</p>
+        <a href="pg-service.html" class="service-link">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon"><i class="fa-solid fa-calculator"></i></div>
+        <h3>투명한 정산 프로세스</h3>
+        <p>D+1 빠른 정산 주기와 실시간 정산 현황 조회로 비즈니스 현금흐름을 안정적으로 관리하세요.</p>
+        <a href="settlement.html" class="service-link">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon"><i class="fa-solid fa-wallet"></i></div>
+        <h3>다양한 결제수단</h3>
+        <p>신용카드, 카카오페이, 네이버페이, 토스페이, 계좌이체, 가상계좌, 휴대폰 결제까지 모두 지원합니다.</p>
+        <a href="payment-methods.html" class="service-link">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+        <h3>간편한 API 연동</h3>
+        <p>REST API, SDK, 플러그인 등 다양한 연동 방식을 지원하며 개발 전담팀이 무상으로 지원합니다.</p>
+        <a href="pg-service.html#features" class="service-link">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>실시간 대시보드</h3>
+        <p>거래 현황, 정산 내역, 취소/환불을 실시간으로 모니터링하고 엑셀 다운로드로 쉽게 관리하세요.</p>
+        <a href="pg-service.html#dashboard" class="service-link">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon"><i class="fa-solid fa-headset"></i></div>
+        <h3>24/7 전담 고객지원</h3>
+        <p>장애 발생 시 즉시 대응, 전담 매니저 배정, FAQ 및 1:1 문의로 언제나 든든한 파트너가 됩니다.</p>
+        <a href="support.html" class="service-link">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 통계 섹션 ==================== -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="icon"><i class="fa-solid fa-store"></i></div>
+        <div class="num"><span class="count-up" data-target="12000" data-suffix="+">12,000+</span></div>
+        <div class="label">누적 가맹점 수</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-1">
+        <div class="icon"><i class="fa-solid fa-won-sign"></i></div>
+        <div class="num"><span class="count-up" data-target="2" data-suffix="조+">2조+</span></div>
+        <div class="label">연간 결제 처리 금액</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <div class="icon"><i class="fa-solid fa-percent"></i></div>
+        <div class="num"><span class="count-up" data-target="99" data-suffix=".9%">99.9%</span></div>
+        <div class="label">서비스 가동률</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <div class="icon"><i class="fa-solid fa-clock"></i></div>
+        <div class="num"><span class="count-up" data-target="1" data-suffix="일">1일</span></div>
+        <div class="label">빠른 정산 주기</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 서비스 신청 프로세스 ==================== -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">서비스 신청 안내</div>
+      <h2 class="section-title">4단계로 간편하게 시작하세요</h2>
+      <p class="section-subtitle">서류 제출부터 연동 완료까지 전담 팀이 함께합니다.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="process-num"><i class="fa-solid fa-pen-to-square"></i></div>
+        <h4>신청서 제출</h4>
+        <p>온라인 신청서 작성 및 제출</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num"><i class="fa-solid fa-file-lines"></i></div>
+        <h4>서류 심사</h4>
+        <p>사업자 정보 및 서류 검토</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num"><i class="fa-solid fa-handshake"></i></div>
+        <h4>계약 체결</h4>
+        <p>전자계약으로 간편하게 완료</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num"><i class="fa-solid fa-code"></i></div>
+        <h4>연동 개발</h4>
+        <p>API/SDK 연동 기술 지원</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num"><i class="fa-solid fa-rocket"></i></div>
+        <h4>서비스 오픈</h4>
+        <p>결제 개시 및 운영 시작</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:16px;">
+      <a href="support.html#apply" class="btn btn-primary btn-lg">
+        <i class="fa-solid fa-pen-to-square"></i> 지금 신청하기
+      </a>
+      <a href="settlement.html#documents" class="btn btn-outline" style="margin-left:12px;">
+        <i class="fa-solid fa-file-lines"></i> 구비 서류 확인
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 공지사항 / 파트너 ==================== -->
+<section class="section section-bg">
+  <div class="container">
+    <div class="notice-grid reveal">
+      <!-- 공지사항 -->
+      <div class="notice-card">
+        <div class="notice-header">
+          <h3><i class="fa-solid fa-bullhorn"></i> 공지사항</h3>
+          <a href="support.html#notice" class="notice-more">더보기 <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+        <ul class="notice-list">
+          <li><span class="notice-date">2026.04.15</span><a href="support.html#notice" class="notice-title">[필독] 개인정보처리방침 개정 안내</a></li>
+          <li><span class="notice-date">2026.04.01</span><a href="support.html#notice" class="notice-title">2026년 2분기 정산 시스템 점검 일정 안내</a></li>
+          <li><span class="notice-date">2026.03.20</span><a href="support.html#notice" class="notice-title">가상계좌 서비스 은행 추가 안내 (농협·기업은행)</a></li>
+          <li><span class="notice-date">2026.03.05</span><a href="support.html#notice" class="notice-title">카카오페이 간편결제 서비스 업데이트 안내</a></li>
+          <li><span class="notice-date">2026.02.14</span><a href="support.html#notice" class="notice-title">설 명절 고객센터 운영시간 변경 안내</a></li>
+        </ul>
+      </div>
+      <!-- 자주 묻는 질문 -->
+      <div class="notice-card">
+        <div class="notice-header">
+          <h3><i class="fa-solid fa-circle-question"></i> 자주 묻는 질문</h3>
+          <a href="support.html#faq" class="notice-more">더보기 <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+        <ul class="notice-list">
+          <li><span class="notice-date" style="background:rgba(0,71,171,.08);color:var(--primary)">결제</span><a href="support.html#faq" class="notice-title">결제 창이 열리지 않을 때 어떻게 해야 하나요?</a></li>
+          <li><span class="notice-date" style="background:rgba(0,71,171,.08);color:var(--primary)">정산</span><a href="support.html#faq" class="notice-title">정산은 며칠 만에 입금되나요?</a></li>
+          <li><span class="notice-date" style="background:rgba(0,71,171,.08);color:var(--primary)">신청</span><a href="support.html#faq" class="notice-title">개인사업자도 서비스 신청이 가능한가요?</a></li>
+          <li><span class="notice-date" style="background:rgba(0,71,171,.08);color:var(--primary)">연동</span><a href="support.html#faq" class="notice-title">API 연동은 어떻게 진행되나요?</a></li>
+          <li><span class="notice-date" style="background:rgba(0,71,171,.08);color:var(--primary)">취소</span><a href="support.html#faq" class="notice-title">결제 취소·환불 처리는 어떻게 하나요?</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 파트너사 ==================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">파트너사</div>
+      <h2 class="section-title">함께하는 금융 파트너</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="partner-logos reveal">
+      <div class="partner-logo">신한카드</div>
+      <div class="partner-logo">KB국민카드</div>
+      <div class="partner-logo">삼성카드</div>
+      <div class="partner-logo">현대카드</div>
+      <div class="partner-logo">롯데카드</div>
+      <div class="partner-logo">하나카드</div>
+      <div class="partner-logo">우리카드</div>
+      <div class="partner-logo">BC카드</div>
+      <div class="partner-logo">카카오페이</div>
+      <div class="partner-logo">네이버페이</div>
+      <div class="partner-logo">토스페이</div>
+      <div class="partner-logo">페이코</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA 배너 ==================== -->
+<section class="section section-bg">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <div class="cta-banner-text">
+        <h2>지금 바로 베스트페이먼츠와<br />함께 시작하세요</h2>
+        <p>담당자가 직접 연락드려 최적의 결제 솔루션을 안내해 드립니다.</p>
+      </div>
+      <div class="cta-banner-actions">
+        <a href="support.html#apply" class="btn btn-accent btn-lg">
+          <i class="fa-solid fa-pen-to-square"></i> 서비스 신청
+        </a>
+        <a href="support.html#inquiry" class="btn btn-outline-white btn-lg">
+          <i class="fa-solid fa-phone"></i> 문의하기
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 푸터 ==================== -->
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="margin-bottom:16px">
+          <div class="logo-icon">B</div>
+          <div>베스트페이먼츠<span class="logo-en">BestPayments</span></div>
+        </a>
+        <p class="footer-desc">베스트페이먼츠는 금융위원회에 등록된 전자금융업자로서 안전하고 신뢰할 수 있는 전자결제 서비스를 제공합니다.</p>
+        <div class="footer-cert">
+          <div class="cert-badge"><i class="fa-solid fa-shield-halved"></i> PCI-DSS</div>
+          <div class="cert-badge"><i class="fa-solid fa-certificate"></i> ISO27001</div>
+          <div class="cert-badge"><i class="fa-solid fa-lock"></i> ISMS</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>서비스</h4>
+        <ul>
+          <li><a href="pg-service.html">전자결제(PG) 소개</a></li>
+          <li><a href="settlement.html">정산 프로세스</a></li>
+          <li><a href="payment-methods.html">결제수단 안내</a></li>
+          <li><a href="support.html#apply">서비스 신청</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>회사</h4>
+        <ul>
+          <li><a href="about.html">회사소개</a></li>
+          <li><a href="about.html#history">연혁</a></li>
+          <li><a href="about.html#certification">인증 및 허가</a></li>
+          <li><a href="support.html#notice">공지사항</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>고객센터</h4>
+        <div class="footer-contact-item">
+          <span class="label">가맹점 문의</span>
+          <span class="value">1644-0000</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="label">결제 고객 문의</span>
+          <span class="value">1644-0001</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="label">이메일</span>
+          <span class="value small">cs@bestpayments.co.kr</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="label">운영시간</span>
+          <span class="value small">평일 09:00 ~ 18:00</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-info">
+        상호: 베스트페이먼츠(주) | 대표이사: 홍길동 | 사업자등록번호: 123-45-67890<br />
+        서울특별시 강남구 테헤란로 123, 베스트타워 15층 | FAX: 02-1234-5678<br />
+        COPYRIGHT © BestPayments Co., Ltd. ALL RIGHTS RESERVED.
+      </div>
+      <div class="footer-links">
+        <a href="#" class="highlight">개인정보처리방침</a>
+        <a href="#">전자금융거래 이용약관</a>
+        <a href="#">이메일 무단수집 거부</a>
+        <a href="support.html#faq">FAQ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/common.js"></script>
+</body>
+</html>
